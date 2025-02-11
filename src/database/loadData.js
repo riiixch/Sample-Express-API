@@ -15,7 +15,7 @@ async function loadData() {
             e_fname: "Citlali",
             e_lname: "Creighton",
             e_role: "พนักงาน",
-            e_salaer: 30000,
+            e_salary: 30000,
             e_status: true,
         });
     

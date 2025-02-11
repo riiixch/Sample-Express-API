@@ -9,7 +9,10 @@ const CustomerSchema = new Schema({
     c_id: String,
     c_fname: String,
     c_lname: String,
-    c_status: Boolean,
+    c_status: {
+        type: Boolean,
+        default: true,
+    },
 }, { strict: false, timestamps: true });
 
 const monCustomer = connect.model('customer', CustomerSchema);

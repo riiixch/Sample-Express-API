@@ -13,14 +13,17 @@ const EmployeeSchema = new Schema({
         type: String,
         enum: ["พนักงาน", "หัวหน้าแผนก", "ผู้บริหาร"],
     },
-    e_salaer: {
+    e_salary: {
         type: Number,
         validator: function(vaule) {
             return vaule > 0;
         },
         message: "เงินเดือนต้องมากกว่า 0 บาท",
     },
-    e_status: Boolean,
+    e_status: {
+        type: Boolean,
+        default: true,
+    },
 }, { strict: false, timestamps: true });
 
 const monEmployee = connect.model('employee', EmployeeSchema);
