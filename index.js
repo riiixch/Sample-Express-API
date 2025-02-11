@@ -13,11 +13,15 @@ const { getOrder } = require('./src/function/getOrder');
 app.use(express.static('public'));
 app.use(express.json());
 
+// Employee
+
 app.get('/api/get/employee', async (req, res) => {
     const employeeData = await getEmployee();
 
     return res.json({data: employeeData});
 });
+
+// Cutomer
 
 app.get('/api/get/customer', async (req, res) => {
     const customerData = await getCustomer();
@@ -25,11 +29,15 @@ app.get('/api/get/customer', async (req, res) => {
     return res.json({data: customerData});
 });
 
+// Order
+
 app.get('/api/get/order', async (req, res) => {
     const orderData = await getOrder();
 
     return res.json({data: orderData});
 });
+
+// Product
 
 app.get('/api/get/product', async (req, res) => {
     const productData = await getProduct();

@@ -1,13 +1,13 @@
 {
-  "name": "mongodb-example",
+  "name": "sample-express-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Example of using Express as an API Server backend",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "RIIIXCH",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
