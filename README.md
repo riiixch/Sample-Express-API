@@ -92,7 +92,7 @@
      "http://localhost:8080/api/del/customer",
      headers: {"Content-Type": "application/json"},
      body: json.encode({
-       "c_id": "aSde4Cfs"
+       "c_id": "iydAomot"
      }),
    );
    ```
@@ -105,7 +105,7 @@
      "http://localhost:8080/api/edit/customer",
      headers: {"Content-Type": "application/json"},
      body: json.encode({
-       "c_id": "aSde4Cfs",
+       "c_id": "iydAomot",
        "c_fname": "Sompop",
        "c_lname": "Iemsombat"
      }),
