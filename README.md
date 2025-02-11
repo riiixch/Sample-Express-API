@@ -7,7 +7,7 @@
 ขั้นตอนการติดตั้งและการตั้งค่าเบื้องต้น:
 
 1. **โคลน Repository**  
-   ก่อนอื่นให้ทำการโคลนโปรเจกต์จาก GitHub มายังเครื่องของคุณ:
+   ทำการโคลนโปรเจกต์จาก GitHub มายังเครื่องของคุณ:
 
    ```bash
    git clone https://github.com/riiixch/Sample-Express-API
@@ -15,14 +15,14 @@
    ```
 
 2. **ติดตั้ง Dependencies**  
-   จากนั้นให้ติดตั้ง dependencies ที่จำเป็น:
+   ติดตั้ง dependencies ที่จำเป็นสำหรับโปรเจกต์:
 
    ```bash
    npm install
    ```
 
 3. **ตั้งค่าไฟล์ .env**  
-   เปลี่ยนชื่อไฟล์ `.env.sample` เป็น `.env` และทำการตั้งค่าตามนี้:
+   เปลี่ยนชื่อไฟล์ `.env.sample` เป็น `.env` และตั้งค่าตามนี้:
 
    ```bash
    MONGO_URI = "ลิงค์ฐานข้อมูล MongoDB"
@@ -31,7 +31,7 @@
    ```
 
 4. **เริ่มเซิร์ฟเวอร์**  
-   หลังจากตั้งค่าเสร็จสิ้น, ให้เริ่มเซิร์ฟเวอร์ด้วยคำสั่ง:
+   เริ่มเซิร์ฟเวอร์โดยใช้คำสั่ง:
 
    ```bash
    node .
@@ -39,11 +39,75 @@
 
 ## URL สำหรับ Fetch & Post ข้อมูล
 
-ตารางนี้แสดง URL สำหรับการส่งคำสั่งต่างๆ ที่สามารถใช้งานได้:
+ตารางนี้แสดง URL สำหรับการส่งคำสั่งต่าง ๆ ที่สามารถใช้งานได้:
 
 | URL | รายละเอียด |
 | --- | ---------- |
-| `http://localhost:8080/api/get/customer` | ดึงข้อมูล Customer ทั้งหมด |
-| `http://localhost:8080/api/add/customer` | เพิ่มข้อมูล Customer |
+| `http://localhost:8080/api/get/customer` | ดึงข้อมูลทั้งหมดของ Customer |
+| `http://localhost:8080/api/add/customer` | เพิ่มข้อมูล Customer ใหม่ |
 | `http://localhost:8080/api/del/customer` | ลบข้อมูล Customer |
 | `http://localhost:8080/api/edit/customer` | แก้ไขข้อมูล Customer |
+
+## ตัวอย่างการ Fetch & Post ข้อมูล
+
+1. **http://localhost:8080/api/get/customer**  
+   API นี้จะส่งข้อมูลจาก MongoDB มาในรูปแบบ JSON โดยข้อมูลจะอยู่ในรูปของ Array:
+
+   ```json
+   {
+     "data": [
+       {
+         "_id": "67ab4f5734068143c04baebd",
+         "c_id": "JxRWWcfE",
+         "c_fname": "Philetus",
+         "c_lname": "Atif",
+         "c_status": true,
+         "createdAt": "2025-02-11T13:23:35.211Z",
+         "updatedAt": "2025-02-11T13:23:35.211Z",
+         "__v": 0
+       }
+     ]
+   }
+   ```
+
+2. **http://localhost:8080/api/add/customer**  
+   API นี้จะรับข้อมูลในรูปแบบ Body และใช้ตัวแปร `c_fname` และ `c_lname` (ประเภท String) สำหรับเพิ่มข้อมูล Customer ใหม่ เช่น:
+
+   ```dart
+   http.post(
+     "http://localhost:8080/api/add/customer",
+     headers: {"Content-Type": "application/json"},
+     body: json.encode({
+       "c_fname": "RICH",
+       "c_lname": "RIIIXCH"
+     }),
+   );
+   ```
+
+3. **http://localhost:8080/api/del/customer**  
+   API นี้จะรับข้อมูลในรูปแบบ Body และใช้ตัวแปร `c_id` (ประเภท String) สำหรับลบข้อมูล Customer เช่น:
+
+   ```dart
+   http.post(
+     "http://localhost:8080/api/del/customer",
+     headers: {"Content-Type": "application/json"},
+     body: json.encode({
+       "c_id": "aSde4Cfs"
+     }),
+   );
+   ```
+
+4. **http://localhost:8080/api/edit/customer**  
+   API นี้จะรับข้อมูลในรูปแบบ Body และใช้ตัวแปร `c_id`, `c_fname`, และ `c_lname` (ประเภท String) สำหรับแก้ไขข้อมูล Customer เช่น:
+
+   ```dart
+   http.post(
+     "http://localhost:8080/api/edit/customer",
+     headers: {"Content-Type": "application/json"},
+     body: json.encode({
+       "c_id": "aSde4Cfs",
+       "c_fname": "Sompop",
+       "c_lname": "Iemsombat"
+     }),
+   );
+   ```
