@@ -1,19 +1,22 @@
 const { monCustomer } = require("../database/monCustomer");
 
-async function delCustomer(data) {
-    const { c_id } = data;
+async function editCustomer(data) {
+    const { c_id, c_fname, c_lname } = data;
 
     const customerData = await monCustomer.findOne({ c_id: c_id });
 
     if (customerData == null) {
         return 400;
     }
-
-    await customerData.deleteOne();
+    
+    customerData.c_fname = c_fname;
+    customerData.c_lname = c_lname;
+    
+    await customerData.save();
 
     return 200;
 }
 
 module.exports = {
-    delCustomer
+    editCustomer
 }
