@@ -31,20 +31,20 @@ app.get('/api/get/customer', async (req, res) => {
 app.post('/api/add/customer', async (req, res) => {
     const code = await addCustomer(req.body);
 
-    return res.status(200).json({ code });
+    return res.json({ code });
 });
 
 app.post('/api/del/customer', async (req, res) => {
     const code = await delCustomer(req.body);
     
-    return res.status(200).json({ code });
+    return res.json({ code });
 });
 
 
 app.post('/api/edit/customer', async (req, res) => {
     const code = await editCustomer(req.body);
 
-    return res.status(200).json({ code });
+    return res.json({ code });
 });
 
 // Employee
