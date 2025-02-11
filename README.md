@@ -50,7 +50,7 @@
 
 ## ตัวอย่างการ Fetch & Post ข้อมูล
 
-1. **http://localhost:8080/api/get/customer**  
+1. `http://localhost:8080/api/get/customer` 
    API นี้จะส่งข้อมูลจาก MongoDB มาในรูปแบบ JSON โดยข้อมูลจะอยู่ในรูปของ Array:
 
    ```json
@@ -70,7 +70,7 @@
    }
    ```
 
-2. **http://localhost:8080/api/add/customer**  
+2. `http://localhost:8080/api/add/customer`
    API นี้จะรับข้อมูลในรูปแบบ Body และใช้ตัวแปร `c_fname` และ `c_lname` (ประเภท String) สำหรับเพิ่มข้อมูล Customer ใหม่ เช่น:
 
    ```dart
@@ -84,7 +84,7 @@
    );
    ```
 
-3. **http://localhost:8080/api/del/customer**  
+3. `http://localhost:8080/api/del/customer`
    API นี้จะรับข้อมูลในรูปแบบ Body และใช้ตัวแปร `c_id` (ประเภท String) สำหรับลบข้อมูล Customer เช่น:
 
    ```dart
@@ -97,7 +97,7 @@
    );
    ```
 
-4. **http://localhost:8080/api/edit/customer**  
+4. `http://localhost:8080/api/edit/customer`
    API นี้จะรับข้อมูลในรูปแบบ Body และใช้ตัวแปร `c_id`, `c_fname`, และ `c_lname` (ประเภท String) สำหรับแก้ไขข้อมูล Customer เช่น:
 
    ```dart
