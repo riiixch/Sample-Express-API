@@ -1,6 +1,9 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require("cors");
+
 const app = express();
+
 const port = process.env.API_PORT;
 
 const { log } = require('console');
@@ -12,14 +15,7 @@ const { getOrder } = require('./src/function/getOrder');
 
 app.use(express.static('public'));
 app.use(express.json());
-
-// Employee
-
-app.get('/api/get/employee', async (req, res) => {
-    const employeeData = await getEmployee();
-
-    return res.json({data: employeeData});
-});
+app.use(cors());
 
 // Cutomer
 
@@ -27,6 +23,14 @@ app.get('/api/get/customer', async (req, res) => {
     const customerData = await getCustomer();
 
     return res.json({data: customerData});
+});
+
+// Employee
+
+app.get('/api/get/employee', async (req, res) => {
+    const employeeData = await getEmployee();
+
+    return res.json({data: employeeData});
 });
 
 // Order
