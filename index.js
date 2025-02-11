@@ -25,7 +25,7 @@ app.use(cors());
 app.get('/api/get/customer', async (req, res) => {
     const customerData = await getCustomer();
 
-    return res.json({data: customerData});
+    return res.json({ data: customerData });
 });
 
 app.post('/api/add/customer', async (req, res) => {
