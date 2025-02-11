@@ -8,13 +8,14 @@ const port = process.env.API_PORT;
 
 const { log } = require('console');
 
-const { getEmployee } = require('./src/function/getEmployee');
 const { getCustomer } = require('./src/function/getCustomer');
-const { getProduct } = require('./src/function/getProduct');
-const { getOrder } = require('./src/function/getOrder');
 const { addCustomer } = require('./src/function/addCustomer');
 const { delCustomer } = require('./src/function/delCustomer');
 const { editCustomer } = require('./src/function/editCustomer');
+
+const { getEmployee } = require('./src/function/getEmployee');
+const { getProduct } = require('./src/function/getProduct');
+const { getOrder } = require('./src/function/getOrder');
 
 app.use(express.static('public'));
 app.use(express.json());
