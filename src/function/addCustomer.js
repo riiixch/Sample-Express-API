@@ -4,7 +4,10 @@ const { generateRandomID } = require("./randomID");
 async function addCustomer(data) {
     const { c_fname, c_lname } = data;
 
-    if (c_fname == null || c_lname == null || c_fname == "" || c_lname == "") {
+    if (c_fname == null || c_fname == "") {
+        return 400;
+    }
+    if (c_lname == null || c_lname == "") {
         return 400;
     }
 
