@@ -15,6 +15,7 @@ const OrderSchema = new Schema({
         }
     ],
     o_price: Number,
+    o_status: Number,
 }, { strict: false, timestamps: true });
 
 const monOrder = connect.model('order', OrderSchema);
