@@ -2,7 +2,7 @@ const { monOrder } = require("../database/monOrder");
 const { monProduct } = require("../database/monProduct");
 
 async function editEmployee(data) {
-    const { o_id, o_detial } = data;
+    const { o_id, o_detial, o_status } = data;
 
     if (o_id == null || o_id == "") {
         return 400;
@@ -11,16 +11,14 @@ async function editEmployee(data) {
         return 400;
     }
 
-    const employeeData = await monEmployee.findOne({ e_id: e_id });
+    const orderData = await monOrder.findOne({ o_id: o_id });
 
-    if (employeeData == null) {
+    if (orderData == null) {
         return 400;
     }
     
-    employeeData.e_fname = e_fname;
-    employeeData.e_lname = e_lname;
-    employeeData.e_role = e_role;
-    employeeData.e_salary = e_salary;
+    orderData.o_detial = e_fname;
+    orderData.o_status = o_status;
     
     await employeeData.save();
 
