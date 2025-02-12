@@ -85,6 +85,7 @@ async function loadData() {
             o_id: generateRandomID(8),
             o_detial: o_detial,
             o_price: o_price,
+            o_status: 1,
         });
     
         await oData.save();
