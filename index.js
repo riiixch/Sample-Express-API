@@ -16,6 +16,10 @@ const { delCustomer } = require('./src/function/delCustomer');
 const { editCustomer } = require('./src/function/editCustomer');
 
 const { getEmployee } = require('./src/function/getEmployee');
+const { addEmployee } = require('./src/function/addEmployee');
+const { delEmployee } = require('./src/function/delEmployee');
+const { editEmployee } = require('./src/function/editEmployee');
+
 const { getProduct } = require('./src/function/getProduct');
 const { getOrder } = require('./src/function/getOrder');
 
@@ -61,20 +65,20 @@ app.get('/api/get/employee', async (req, res) => {
 });
 
 app.post('/api/add/employee', async (req, res) => {
-    const code = await addCustomer(req.body);
+    const code = await addEmployee(req.body);
 
     return res.json({ code });
 });
 
 app.post('/api/del/employee', async (req, res) => {
-    const code = await delCustomer(req.body);
+    const code = await delEmployee(req.body);
     
     return res.json({ code });
 });
 
 
 app.post('/api/edit/employee', async (req, res) => {
-    const code = await editCustomer(req.body);
+    const code = await editEmployee(req.body);
 
     return res.json({ code });
 });

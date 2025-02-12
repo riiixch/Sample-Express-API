@@ -1,6 +1,6 @@
 const { monEmployee } = require("../database/monEmployee");
 
-async function editCustomer(data) {
+async function editEmployee(data) {
     const { e_id, e_fname, e_lname, e_role, e_salary } = data;
 
     if (e_id == null || e_id == "") {
@@ -39,5 +39,5 @@ async function editCustomer(data) {
 }
 
 module.exports = {
-    editCustomer
+    editEmployee
 }
